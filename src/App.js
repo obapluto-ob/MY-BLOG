@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import BlogList from "./components/BlogList";
+import SearchBar from "./components/SearchBar";
+import NewPost from "./components/NewPost";
 
-function App() {
+const App = () => {
+  const [posts, setPosts] = useState([]); // Store posts
+
+  const addPost = (newPost) => {
+    setPosts([...posts, newPost]); // Add new posts dynamically
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h1>My Blog</h1>
+      <SearchBar />
+      <NewPost addPost={addPost} />
+      <BlogList posts={posts} />
     </div>
   );
-}
+};
 
 export default App;
