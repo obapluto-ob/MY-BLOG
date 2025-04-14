@@ -49,3 +49,37 @@ button {
 button:hover {
   background-color: #0056b3;
 }
+
+.hero {
+  text-align: center;
+  padding: 20px;
+  background-color: #e9f5ff;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  main {
+    padding: 15px;
+  }
+
+  .post {
+    padding: 15px;
+  }
+
+  footer {
+    padding: 15px;
+  }
+}

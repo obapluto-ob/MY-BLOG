@@ -12,15 +12,37 @@ const App = () => {
   };
 
   const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchTerm.toLowerCase())
+    post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    post.content.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
   return (
     <div>
-      <h1>My Blog</h1>
-      <SearchBar setSearchTerm={setSearchTerm} />
-      <NewPost addPost={addPost} />
-      <BlogList posts={filteredPosts} />
+      <header>
+        <h1>OBED EMONI LOPEYOK'S BLOG</h1>
+      </header>
+      <section className="hero">
+        <p>Welcome to my blog! Here, I share insights, tutorials, and personal experiences on technology, programming, and more. Stay tuned for exciting content!</p>
+      </section>
+      <main>
+        <SearchBar setSearchTerm={setSearchTerm} />
+        <NewPost addPost={addPost} />
+        <BlogList posts={filteredPosts} />
+      </main>
+      <footer>
+        <p>Connect with me:</p>
+        <a href="https://github.com/obapluto" target="_blank" rel="noopener noreferrer">
+          GitHub
+        </a>
+        {" | "}
+        <a href="https://twitter.com/ObedEmoni" target="_blank" rel="noopener noreferrer">
+          Twitter
+        </a>
+        {" | "}
+        <a href="https://linkedin.com/in/obedemoni" target="_blank" rel="noopener noreferrer">
+          LinkedIn
+        </a>
+      </footer>
     </div>
   );
 };
