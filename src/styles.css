@@ -1,6 +1,10 @@
+/* Global Styles */
 body {
-  background-color: #f8f9fa;
-  font-family: Arial, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 h1 {
@@ -8,78 +12,195 @@ h1 {
   color: #343a40;
 }
 
-.post {
-  background-color: white;
-  padding: 15px;
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+/* Header */
+.header {
+  background-color: var(--header-bg);
+  color: #fff;
+  padding: 25px 20px;
+  text-align: center;
+  border-bottom: 4px solid #444;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.post h2 {
-  color: #007bff;
+/* Header description styling */
+.header .description {
+  font-size: 1.2rem;
+  color: var(--desc-color);
+  margin-top: 8px;
 }
 
-form {
-  max-width: 400px;
-  margin: auto;
-  padding: 20px;
-  background-color: #ffffff;
-  border-radius: 8px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+/* Main Container */
+main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
 }
 
-input, textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
-  border: 1px solid #ced4da;
-  border-radius: 4px;
-}
-
-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
+/* Hero Section */
 .hero {
   text-align: center;
-  padding: 20px;
-  background-color: #e9f5ff;
-  border-bottom: 1px solid #ddd;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #e9f5ff, #dfefff);
   margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
 }
 
 .hero p {
   font-size: 1.2rem;
   color: #555;
   max-width: 700px;
-  margin: 0 auto;
+  margin: 0 auto 20px;
   line-height: 1.6;
 }
 
+.hero button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.hero button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+/* Blog Post Styling */
+.post {
+  background-color: #fff;
+  margin: 20px 0;
+  padding: 25px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+}
+
+.post h2 {
+  color: #29323c;
+  margin-bottom: 12px;
+  font-size: 1.75rem;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 8px;
+  transition: color 0.3s ease;
+}
+
+.post h2:hover {
+  color: #007bff;
+}
+
+.post p {
+  line-height: 1.6;
+  color: #555;
+  margin: 12px 0;
+}
+
+/* Category & Tags */
+.post p strong {
+  color: #333;
+}
+
+.post .tags {
+  color: #007bff;
+  font-size: 0.95rem;
+  margin-top: 5px;
+}
+
+/* Comment Section */
+form {
+  display: flex;
+  margin-top: 10px;
+}
+
+form input[type="text"],
+input, 
+textarea {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 1rem;
+  margin-right: 10px;
+}
+
+form button,
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+form button:hover,
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.03);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #29323c;
+  color: #fff;
+  border-top: 4px solid #444;
+  margin-top: 30px;
+}
+
+/* Nav Links */
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-link:hover {
+  text-decoration: none;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
   header h1 {
-    font-size: 2rem;
+    font-size: 1.5rem;
   }
-
   main {
     padding: 15px;
   }
-
   .post {
-    padding: 15px;
+    padding: 20px;
   }
-
   footer {
     padding: 15px;
   }
+}
+
+/* Define light and dark theme variables */
+:root {
+  --bg-color: #f0f2f5;
+  --text-color: #444;
+  --header-bg: #29323c;
+  --desc-color: #ccc;  /* description text color for light mode */
+  --btn-bg: #007bff;
+  --btn-bg-hover: #0056b3;
+}
+
+[data-theme="dark"] {
+  --bg-color: #121212;
+  --text-color: #ddd;
+  --header-bg: #1e1e1e;
+  --desc-color: #eee;  /* description text color for dark mode */
+  --btn-bg: #bb86fc;
+  --btn-bg-hover: #985eff;
 }

@@ -1,49 +1,53 @@
-import React, { useState } from "react";
-import BlogList from "./components/BlogList";
-import SearchBar from "./components/SearchBar";
-import NewPost from "./components/NewPost";
+import React, { useEffect } from 'react';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import Blog from './pages/Blog';
+import ThemeToggle from './components/ThemeToggle';
+import BackToTop from './components/BackToTop';
+import './styles.css'; // Ensure the CSS is getting imported
+// import HeaderImage from './assets/header.jpg'; // Removed as file does not exist
 
 const App = () => {
-  const [posts, setPosts] = useState([]); // Store posts
-  const [searchTerm, setSearchTerm] = useState(""); // Store search term
-
-  const addPost = (newPost) => {
-    setPosts([...posts, newPost]); // Add new posts dynamically
-  };
-
-  const filteredPosts = posts.filter((post) =>
-    post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    post.content.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  useEffect(() => {
+    AOS.init({
+      duration: 600,
+      easing: 'ease-in-out',
+      once: true,
+    });
+  }, []);
 
   return (
-    <div>
-      <header>
-        <h1>OBED EMONI LOPEYOK'S BLOG</h1>
+    <Router>
+      <header className="header">
+        <h1>My Blog</h1>
+        <p className="description">
+          Sharing insights on coding, technology, and innovation!
+        </p>
+        <ThemeToggle />
+        {/* Using the new image URL */}
+        <img 
+          src="https://canto-wp-media.s3.amazonaws.com/app/uploads/2019/08/19194138/image-url-3.jpg" 
+          alt="Header" 
+          loading="lazy" 
+          style={{ 
+            width: '40%',         // 40% of the container's width
+            maxWidth: '400px',     // Maximum width restricted to 400px
+            height: 'auto',        // Maintaining aspect ratio
+            marginTop: '10px',
+            display: 'block',
+            marginLeft: 'auto',
+            marginRight: 'auto'
+          }} 
+        />
       </header>
-      <section className="hero">
-        <p>Welcome to my blog! Here, I share insights, tutorials, and personal experiences on technology, programming, and more. Stay tuned for exciting content!</p>
-      </section>
-      <main>
-        <SearchBar setSearchTerm={setSearchTerm} />
-        <NewPost addPost={addPost} />
-        <BlogList posts={filteredPosts} />
-      </main>
-      <footer>
-        <p>Connect with me:</p>
-        <a href="https://github.com/obapluto" target="_blank" rel="noopener noreferrer">
-          GitHub
-        </a>
-        {" | "}
-        <a href="https://twitter.com/ObedEmoni" target="_blank" rel="noopener noreferrer">
-          Twitter
-        </a>
-        {" | "}
-        <a href="https://linkedin.com/in/obedemoni" target="_blank" rel="noopener noreferrer">
-          LinkedIn
-        </a>
-      </footer>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/blog" element={<Blog />} />
+      </Routes>
+      <BackToTop />
+    </Router>
   );
 };
 
