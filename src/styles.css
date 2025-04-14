@@ -70,6 +70,13 @@ main {
   transform: scale(1.05);
 }
 
+/* Blog Page Layout */
+.blog-page {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 15px;
+}
+
 /* Blog Post Styling */
 .post {
   background-color: #fff;
@@ -78,6 +85,11 @@ main {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border: 1px solid #ddd;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .post:hover {
@@ -92,6 +104,9 @@ main {
   border-bottom: 2px solid #eee;
   padding-bottom: 8px;
   transition: color 0.3s ease;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: #333;
 }
 
 .post h2:hover {
@@ -115,10 +130,39 @@ main {
   margin-top: 5px;
 }
 
+/* Comments Section Styles */
+.comments-section {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.comments-section h3 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+  color: #555;
+}
+
+.comments-section ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.comments-section li {
+  background-color: #f7f7f7;
+  margin-bottom: 8px;
+  padding: 8px 10px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+
 /* Comment Section */
 form {
   display: flex;
   margin-top: 10px;
+  margin-top: 15px;
+  display: flex;
+  gap: 10px;
 }
 
 form input[type="text"],
@@ -130,6 +174,11 @@ textarea {
   border-radius: 4px;
   font-size: 1rem;
   margin-right: 10px;
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
 form button,
@@ -142,12 +191,20 @@ button {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  padding: 8px 16px;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  color: #fff;
+  cursor: pointer;
 }
 
 form button:hover,
 button:hover {
   background-color: #0056b3;
   transform: scale(1.03);
+  background-color: #0056b3;
 }
 
 /* Footer */

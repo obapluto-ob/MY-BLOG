@@ -2,7 +2,7 @@
   "name": "my-blog",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://obapluto.github.io/my-blog",
+  "homepage": "https://obapluto-ob.github.io/MY-BLOG",
   "dependencies": {
     "ajv": "^8.12.0",
     "aos": "^2.3.4",

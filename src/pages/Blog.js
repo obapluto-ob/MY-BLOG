@@ -18,7 +18,7 @@ Beyond the technical skills, Moringa emphasized collaboration, agile workflows, 
 Today, I’m confident building full-stack applications from scratch, and I’m passionate about solving real-world problems through code. I know this is just the beginning, and I’m excited to keep learning, growing, and contributing to the tech community.`,
       category: 'Personal',
       tags: ['tech', 'journey', 'Moringa School', 'full-stack'],
-      comments: [],
+      comments: []  // initially empty
     },
     {
       id: 2,
